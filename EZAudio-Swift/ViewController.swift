@@ -41,7 +41,7 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     //------------------------------------------------------------------------------
     
     @IBAction func changedPlotType(sender: UISegmentedControl) {
-        var plotType: EZPlotType = EZPlotType(rawValue: sender.selectedSegmentIndex)!;
+        let plotType: EZPlotType = EZPlotType(rawValue: sender.selectedSegmentIndex)!;
         plot?.plotType = plotType;
         switch plotType {
         case EZPlotType.Buffer:
@@ -63,7 +63,7 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
 
     func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            plot?.updateBuffer(buffer[0], withBufferSize: bufferSize);
+            self.plot?.updateBuffer(buffer[0], withBufferSize: bufferSize);
         });
     }
     
