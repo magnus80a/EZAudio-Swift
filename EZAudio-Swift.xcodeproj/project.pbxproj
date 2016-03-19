@@ -150,6 +150,7 @@
 				66E975521B4F279F003FB443 /* Frameworks */,
 				66E975531B4F279F003FB443 /* Resources */,
 				DB5CC3A9224FF76CF868CA67 /* Copy Pods Resources */,
+				E2257BCB34F2ACFECE77AC36 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +265,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EZAudio-Swift/Pods-EZAudio-Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2257BCB34F2ACFECE77AC36 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EZAudio-Swift/Pods-EZAudio-Swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
