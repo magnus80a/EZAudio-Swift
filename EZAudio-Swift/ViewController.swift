@@ -30,12 +30,24 @@ class ViewController: UIViewController, EZMicrophoneDelegate {
     //------------------------------------------------------------------------------
     // MARK: View Lifecycle
     //------------------------------------------------------------------------------
-    
+  
     override func viewDidLoad() {
-        super.viewDidLoad()
-        microphone = EZMicrophone(delegate: self, startsImmediately: true);
+      super.viewDidLoad()
+      let audioSession = AVAudioSession.sharedInstance()
+      do {
+        try audioSession.setCategory(AVAudioSessionCategoryRecord)
+        try audioSession.setActive(true)
+        try audioSession.setCategory(AVAudioSessionCategoryRecord)
+        try audioSession.setActive(true)
+        audioSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+            if allowed {
+                self.microphone = EZMicrophone(delegate: self, startsImmediately: true)
+            }
+        }
+      } catch { /* Handle your error here */ }
     }
-    
+
+
     //------------------------------------------------------------------------------
     // MARK: Actions
     //------------------------------------------------------------------------------
